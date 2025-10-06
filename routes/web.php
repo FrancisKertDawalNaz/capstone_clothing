@@ -14,6 +14,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ShareableController;
 use App\Models\SchoolYearModel;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,15 +104,25 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user/home', function () {
             return view('user.home');
         })->name('user.home');
-        // Also support legacy/chatbot link at /shope so the chatbot can link directly
+
         Route::get('/shope', function () {
             return view('user.shope');
         })->name('shope');
+
+        Route::get('/user/check', [CartController::class, 'checkout'])->name('user.check');
+        Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+        // Place order
+       Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
+
+
+
+
 
         // Cart routes
         Route::prefix('cart')->middleware('auth')->group(function () {
             Route::post('/store', [CartController::class, 'store'])->name('cart.store');
             Route::get('/', [CartController::class, 'index'])->name('cart.index');
+            Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.remove');
             Route::delete('/{id}/remove', [CartController::class, 'destroy'])->name('cart.destroy');
         });
 

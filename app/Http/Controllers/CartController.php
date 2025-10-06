@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
+use App\Models\OrderItem;
 
 class CartController extends Controller
 {
@@ -70,4 +72,14 @@ class CartController extends Controller
             'message' => 'Cart item removed successfully!',
         ]);
     }
+
+    public function checkout()
+    {
+        $items = Cart::where('user_id', auth()->id())->get();
+        $subtotal = $items->sum(fn($item) => $item->price * $item->qty);
+
+        return view('user.check', compact('items', 'subtotal'));
+    }
+
+   
 }

@@ -4,14 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addBtn.addEventListener("click", async function () {
         const product = JSON.parse(this.dataset.product);
-        const priceNumber = parseFloat(product.price.toString().replace(/[^0-9\.]/g, '')) || 0;
+        const priceNumber =
+            parseFloat(product.price.toString().replace(/[^0-9\.]/g, "")) || 0;
 
         try {
             const res = await fetch(window.cartConfig.storeUrl, {
                 method: "POST",
                 headers: {
                     "X-CSRF-TOKEN": window.cartConfig.csrfToken,
-                    "Accept": "application/json",
+                    Accept: "application/json",
                 },
                 body: new URLSearchParams({
                     product_id: product.id ?? "",
@@ -64,15 +65,19 @@ document.addEventListener("DOMContentLoaded", function () {
             let subtotalEl = document.getElementById("cartSubtotal");
 
             container.innerHTML = ""; // clear old items
-            data.items.forEach(item => {
+            data.items.forEach((item) => {
                 container.innerHTML += `
                     <div class="d-flex align-items-center mb-3 p-3 bg-white rounded-4 shadow-sm">
-                        <img src="${item.image ? item.image : '/img/placeholder.jpg'}"
+                        <img src="${
+                            item.image ? item.image : "/img/placeholder.jpg"
+                        }"
                              class="rounded-3 me-3"
                              style="width:50px; height:50px; object-fit:cover;">
                         <div class="flex-grow-1">
                             <h6 class="mb-1 fw-semibold">${item.name}</h6>
-                            <small class="text-muted">₱${(item.price * item.qty).toFixed(2)}</small>
+                            <small class="text-muted">₱${(
+                                item.price * item.qty
+                            ).toFixed(2)}</small>
                         </div>
                         <button class="btn btn-sm btn-outline-danger rounded-pill" 
                                 onclick="removeCartItem(${item.id})">
@@ -92,18 +97,23 @@ document.addEventListener("DOMContentLoaded", function () {
 // Remove cart item
 async function removeCartItem(id) {
     try {
-        let res = await fetch(`/cart/${id}`, {
+        let res = await fetch(window.cartConfig.removeUrl.replace(":id", id), {
             method: "DELETE",
             headers: {
-                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "X-CSRF-TOKEN": window.cartConfig.csrfToken,
                 Accept: "application/json",
             },
         });
+
         let data = await res.json();
         if (data.success) {
-            document.getElementById("offcanvasCart").dispatchEvent(new Event("show.bs.offcanvas"));
+            // Reload cart list without closing offcanvas
+            document
+                .getElementById("offcanvasCart")
+                .dispatchEvent(new Event("show.bs.offcanvas"));
         }
     } catch (err) {
         console.error("Remove failed", err);
     }
 }
+

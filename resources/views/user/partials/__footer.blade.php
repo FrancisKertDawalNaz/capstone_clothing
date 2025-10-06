@@ -55,9 +55,21 @@
         fetchUrl: "{{ route('cart.items') }}", 
         csrfToken: "{{ csrf_token() }}"
     };
+     window.cartConfig = {
+        storeUrl: "{{ route('cart.store') }}",   // works
+        fetchUrl: "{{ route('cart.items') }}",   // works
+        removeUrl: "{{ route('cart.destroy', ':id') }}", // must use cart.destroy
+        csrfToken: "{{ csrf_token() }}"
+    };
+    window.orderConfig = {
+        placeUrl: "{{ route('order.place') }}",
+        redirectUrl: "{{ route('user.home') }}",
+        csrfToken: "{{ csrf_token() }}"
+    };
 </script>
   <script src="{{ URL::asset('js/chatbot.js')}}"></script>
   <script src="{{ URL::asset('js/product.js')}}"></script>
+  <script src="{{ URL::asset('js/item.js')}}"></script>
   <footer class="bg-warning  py-5 border-top footer">
     <div class="container">
         <div class="row">

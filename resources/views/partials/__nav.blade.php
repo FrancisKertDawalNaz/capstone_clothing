@@ -36,7 +36,7 @@
                                 <a class="dropdown-item" href="#">Brand C</a>
                             </div>
                             <div class="col-md-4">
-                                <img src="{{ asset('img/mega-menu.jpg') }}" alt="Promo" class="img-fluid rounded">
+                                <img src="{{ asset('img/ladies.jpg') }}" alt="Promo" class="img-fluid rounded">
                                 <p class="mt-2 small text-muted">Check out our latest promotions and offers!</p>
                             </div>
                         </div>
@@ -55,11 +55,30 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Occasions</a>
+                <!-- Occasions Mega Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="occasionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Occasions
+                    </a>
+                    <div class="dropdown-menu p-3" aria-labelledby="occasionsDropdown" style="width: 400px;">
+                        <a class="dropdown-item" href="#">Weddings</a>
+                        <a class="dropdown-item" href="#">Birthdays</a>
+                        <a class="dropdown-item" href="#">Casual</a>
+                        <a class="dropdown-item" href="#">Formal</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">How It Works</a>
+
+                <!-- How It Works Mega Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="howItWorksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        How It Works
+                    </a>
+                    <div class="dropdown-menu p-3" aria-labelledby="howItWorksDropdown" style="width: 400px;">
+                        <a class="dropdown-item" href="#">Browse Products</a>
+                        <a class="dropdown-item" href="#">Add to Cart</a>
+                        <a class="dropdown-item" href="#">Checkout</a>
+                        <a class="dropdown-item" href="#">Delivery & Returns</a>
+                    </div>
                 </li>
 
             </ul>

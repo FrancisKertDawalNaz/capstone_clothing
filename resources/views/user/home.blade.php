@@ -196,8 +196,6 @@
         </div>
     </div>
 
-    </div>
-
     <!-- Try Our Best Fashion Style Section -->
     <div class="row mb-5">
         <div class="col-md-6">
@@ -230,6 +228,7 @@
         </div>
     </div>
 
+    <!-- Cart Offcanvas -->
     <div class="offcanvas offcanvas-end border-0 shadow-lg" tabindex="-1" id="offcanvasCart">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title fw-bold">Your Cart 🛒</h5>
@@ -248,18 +247,20 @@
                     <span id="cartSubtotal">₱0.00</span>
                 </div>
                 <div class="d-grid">
-                    <button class="btn py-3 rounded-4 fw-semibold shadow-sm"
+                    <a href="{{ route('checkout') }}"
+                        class="btn py-3 rounded-4 fw-semibold shadow-sm"
                         style="background: linear-gradient(135deg, #343a40, #1e1e2f); color: white;">
                         Checkout
-                    </button>
+                    </a>
                 </div>
             </div>
-
         </div>
     </div>
 
-    </div>
 
+    
+
+    
 
 </main>
 
