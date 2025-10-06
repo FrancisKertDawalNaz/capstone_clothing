@@ -1,5 +1,5 @@
 <div class="bg-warning text-center py-1">
-    <small>"Explore trends without the commitment, rent with us."</small>
+  <small>"Explore trends without the commitment, rent with us."</small>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -93,20 +93,20 @@
       </a>
 
       @auth
-        <span class="text-muted small me-3">{{ Auth::user()->email }}</span>
+      <span class="text-muted small me-3">{{ Auth::user()->email }}</span>
       @endauth
 
-      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+      <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
         <i class="fa fa-shopping-cart fa-lg me-3"></i>
       </a>
 
+
       @auth
-        <form method="POST" action="{{ route('logout') }}" class="d-inline">
-          @csrf
-          <button type="submit" class="btn btn-outline-danger btn-sm me-3">Logout</button>
-        </form>
+      <form method="POST" action="{{ route('logout') }}" class="d-inline">
+        @csrf
+        <button type="submit" class="btn btn-outline-danger btn-sm me-3">Logout</button>
+      </form>
       @endauth
     </div>
   </div>
 </nav>
-

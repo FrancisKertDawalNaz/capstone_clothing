@@ -427,18 +427,6 @@ ${prod.name}
 <div style="font-size:14px;color:#111;font-weight:700;margin-bottom:6px;text-align:center;">${prod.price}</div>
 
 <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-<button class="btn btn-sm" 
-    style="background:linear-gradient(135deg,#ff7e5f,#feb47b);
-            color:#fff;
-            font-weight:600;
-            border:none;
-            border-radius:12px;
-            padding:7px 20px;
-            box-shadow:0 3px 10px #feb47b66;
-            transition:all 0.25s ease;">
-    Book Now
-</button>
-
 <a class="btn btn-sm btn-outline-dark view-product-btn" 
     href="/shope?${params}"
     style="border-radius:12px;padding:7px 20px;font-weight:600;border-width:1.5px;"
@@ -479,6 +467,3 @@ ${prod.name}
         });
     }
 });
-
-
-

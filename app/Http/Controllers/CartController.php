@@ -48,8 +48,16 @@ class CartController extends Controller
     {
         $userId = Auth::id();
         $cartItems = Cart::where('user_id', $userId)->get();
-        return response()->json($cartItems);
+
+        // Calculate subtotal
+        $subtotal = $cartItems->sum(fn($item) => $item->price * $item->qty);
+
+        return response()->json([
+            'items' => $cartItems,
+            'subtotal' => $subtotal
+        ]);
     }
+
 
     // Optional: remove cart item
     public function destroy($id)

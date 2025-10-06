@@ -115,7 +115,7 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{id}/remove', [CartController::class, 'destroy'])->name('cart.destroy');
         });
 
-
+        Route::get('/cart/items', [CartController::class, 'index'])->name('cart.items');
 
         Route::get('/user/shope', function () {
             return view('user.shope');
