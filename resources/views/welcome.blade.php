@@ -180,7 +180,7 @@
 
 <div class="offcanvas offcanvas-end border-0 shadow-lg" tabindex="-1" id="offcanvasSignup" style="backdrop-filter: blur(8px);">
     <div class="offcanvas-header text-white" style="background: linear-gradient(135deg, #1e1e2f, #343a40);">
-        <h5 class="offcanvas-title fw-bold">Create Account ✨</h5>
+        <h5 class="offcanvas-title fw-bold text-light">Create Account ✨</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body p-5" style="background: #f8f9fa;">
@@ -237,7 +237,7 @@
 <!-- Cart Offcanvas -->
 <div class="offcanvas offcanvas-end border-0 shadow-lg" tabindex="-1" id="offcanvasCart" style="backdrop-filter: blur(8px);">
     <div class="offcanvas-header text-white" style="background: linear-gradient(135deg, #1e1e2f, #343a40);">
-        <h5 class="offcanvas-title fw-bold">Your Cart 🛒</h5>
+        <h5 class="offcanvas-title fw-bold text-light">Your Cart 🛒</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center text-center" style="background: #f8f9fa;">
@@ -253,5 +253,7 @@
 
     </div>
 </div>
+
+
 
 @include('partials.__footer')

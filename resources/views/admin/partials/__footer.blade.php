@@ -64,8 +64,9 @@
 <script src="{{ asset('js/index.js') }}"></script>
 <script src="{{ asset('js/config.js') }}"></script>
 @endif
-<script src="{{ URL::asset('js/chatbot.js')}}"></script>
 
+<script src="{{ URL::asset('js/chatbot.js')}}"></script>
+<script src="{{ URL::asset('js/product.js')}}"></script>
 </body>
 
 </html>

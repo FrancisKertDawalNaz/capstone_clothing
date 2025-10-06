@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to SmartSched</title>
+    <title>Welcome to Clothing</title>
 </head>
 <body>
-    <h1>Welcome to SmartSched</h1>
+    <h1>Welcome to Clothing</h1>
     <p>Dear {{ $fullname }},</p>
-    <p>Welcome to SmartSched! Your account has been successfully created.</p>
+    <p>Welcome to Clothing! Your account has been successfully created.</p>
     <p>Your login credentials are:</p>
     <ul>
         <li><strong>Email:</strong> {{ $email }}</li>
@@ -19,6 +19,6 @@
     <p>If you have any questions or need assistance, feel free to contact us.</p>
     <p>Thank you for joining us!</p>
     <p>Sincerely,</p>
-    <p>The SmartSched Team</p>
+    <p>The Clothing Team</p>
 </body>
 </html>

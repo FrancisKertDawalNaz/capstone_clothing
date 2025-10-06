@@ -14,7 +14,7 @@
         <p><strong>New Password:</strong> {{ $password }}</p>
 
 
-        <p style="margin-top: 20px;">Thank you,<br>SmartSched</p>
+        <p style="margin-top: 20px;">Thank you,<br>Clothing</p>
     </div>
 </body>
 </html>

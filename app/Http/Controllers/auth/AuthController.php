@@ -183,7 +183,7 @@ class AuthController extends Controller
           'forgot_email' => 'required|email|exists:users,email'
         ],
         [
-          'forgot_email.exists' => 'The email address you entered is not registered in SmartSched.',
+          'forgot_email.exists' => 'The email address you entered is not registered in Clothing.',
           'forgot_email.email' => 'Please enter a valid email address.',
           'forgot_email.required' => 'Email address is required.'
         ]

@@ -78,7 +78,7 @@
             <p>We look forward to your visit.</p>
         </div>
         <div class="footer">
-          <p>&copy; 2024 SmartSched. All rights reserved.</p>
+          <p>&copy; 2024 Clothing. All rights reserved.</p>
         </div>
     </div>
 </body>

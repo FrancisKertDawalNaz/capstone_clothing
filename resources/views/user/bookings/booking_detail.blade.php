@@ -80,7 +80,7 @@
                     @if ($bookingDetail->type == "Virtual")
                       <tr>
                         <td>Meeting Type:</td>
-                        <td>{{ $bookingDetail->link_type == "code" ? "SmartSched meeting service" : $bookingDetail->link_type }}</td>
+                        <td>{{ $bookingDetail->link_type == "code" ? "Clothing meeting service" : $bookingDetail->link_type }}</td>
                       </tr>
                       <tr>
                         <td>Link/Code:</td>

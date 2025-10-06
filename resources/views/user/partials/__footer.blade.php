@@ -30,6 +30,8 @@
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   
   <!-- Template Main JS File -->
   <script src="{{ URL::asset('theme/assets/js/main.js')}}"></script>
@@ -37,13 +39,20 @@
   <script src="{{ URL::asset('js/summernote.js')}}"></script>
   <script src="{{ URL::asset('js/user/booking.js')}}"></script>
   <script src="{{ URL::asset('js/user/user.js')}}"></script>
+  
   @if(Request::routeIs('videocall'))
     <script src="https://sdk.videosdk.live/js-sdk/0.0.82/videosdk.js"></script>
     <script src="{{ asset('js/index.js') }}"></script>
     <script src="{{ asset('js/config.js') }}"></script>
   @endif
+  <script>
+    window.cartConfig = {
+        storeUrl: "{{ route('cart.store') }}",
+        csrfToken: "{{ csrf_token() }}"
+    };
+</script>
   <script src="{{ URL::asset('js/chatbot.js')}}"></script>
-
+  <script src="{{ URL::asset('js/product.js')}}"></script>
   <footer class="bg-warning  py-5 border-top footer">
     <div class="container">
         <div class="row">

@@ -30,7 +30,7 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Welcome to SmartSched')
+        return $this->subject('Welcome to Clothing')
                     ->view('emails.welcome');
     }
 }

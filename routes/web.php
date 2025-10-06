@@ -13,6 +13,7 @@ use App\Http\Controllers\ModuleAccessController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ShareableController;
 use App\Models\SchoolYearModel;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,23 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user/home', function () {
             return view('user.home');
         })->name('user.home');
+        // Also support legacy/chatbot link at /shope so the chatbot can link directly
+        Route::get('/shope', function () {
+            return view('user.shope');
+        })->name('shope');
+
+        // Cart routes
+        Route::prefix('cart')->middleware('auth')->group(function () {
+            Route::post('/store', [CartController::class, 'store'])->name('cart.store');
+            Route::get('/', [CartController::class, 'index'])->name('cart.index');
+            Route::delete('/{id}/remove', [CartController::class, 'destroy'])->name('cart.destroy');
+        });
+
+
+
+        Route::get('/user/shope', function () {
+            return view('user.shope');
+        })->name('user.shope');
         Route::middleware(['web'])->group(function () {
             Route::post('/user/update-profile', [UsersController::class, 'updateProfile'])->name('update-profile');
             Route::get('/user/help', function () {

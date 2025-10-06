@@ -440,7 +440,7 @@ ${prod.name}
 </button>
 
 <a class="btn btn-sm btn-outline-dark view-product-btn" 
-    href="/product?${params}"
+    href="/shope?${params}"
     style="border-radius:12px;padding:7px 20px;font-weight:600;border-width:1.5px;"
     >
     View
@@ -479,3 +479,6 @@ ${prod.name}
         });
     }
 });
+
+
+
