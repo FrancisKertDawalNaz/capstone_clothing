@@ -1,0 +1,391 @@
+ body {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .left {
+        height: 100vh;
+        width: 50%;
+        float: left;
+    }
+
+    .left img {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .right {
+        position: absolute;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #FEF3E2;
+        text-align: center;
+    }
+
+    .right form {
+        width: 300px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .right input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .right button {
+        padding: 10px;
+        background: #007bff;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .right button:hover {
+        background: #0056b3;
+    }
+
+    .right h2 {
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .right p {
+        margin-top: 0;
+        color: #C2A68C;
+    }
+
+    .right img {
+        height: 100px;
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+
+    .right h1 {
+        margin-bottom: 5px;
+        color: #C2A68C;
+    }
+
+    .right a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .right span {
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    .btn.google {
+        background: #fff;
+        border: 1px solid #ccc;
+        color: #444;
+    }
+
+    .btn.google:hover {
+        background: #f1f1f1;
+    }
+
+    .btn.apple {
+        background: #000;
+        color: #fff;
+    }
+
+    .btn.apple:hover {
+        background: #333;
+    }
+
+    .btn.email {
+        background: #007bff;
+        color: #fff;
+    }
+
+    .btn.email:hover {
+        background: #0056b3;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Modal content */
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        width: 350px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+    }
+
+    .modal-content h2 {
+        margin-bottom: 15px;
+    }
+
+    .modal-content input {
+        width: 90%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .modal-content button {
+        width: 100%;
+        padding: 10px;
+        background: #111;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        color: #666;
+    }
+
+    .close-btn:hover {
+        color: #000;
+    }
+
+    .modal-content h1{
+        color: #C2A68C;
+    }
+
+    .modal-content p{
+        color: #C2A68C;
+    }
+   
+    .modal-content a{
+        text-decoration: none;
+        color: #333;
+    }
+
+    .modal-content span{
+        color: #007bff;
+        cursor: pointer;
+    }   
+
+    .modal-content button:hover {
+        background: #3046c4;
+    }
+
+    .justin-section {
+    padding-top: 80px; 
+}
+
+.footer{
+    color: #FEF3E2;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
+
+/* Hover Effects */
+  #offcanvasLogin button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+  #offcanvasLogin input:focus {
+    border: 2px solid #495057 !important;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  }
+
+  .tippy-box[data-theme~='light-border'] {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.tippy-box[data-theme~='light-border'] .tippy-arrow {
+  color: #fff;
+}
+
+.shop-card img {
+    transition: transform 0.3s ease;
+}
+
+.shop-card:hover img {
+    transform: scale(1.05);
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, #222, #555);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(135deg, #555, #222);
+    transform: translateY(-2px);
+}
+
+.shop-card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.badge {
+    font-size: 0.8rem;
+}
+
+#aiChatBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    z-index: 9999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#aiChatBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.fashionbot {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    max-height: 500px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+}
+
+.bot-header {
+    background: #ffb88c;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bot-body {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.bot-message {
+    background: #f1f1f1;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.bot-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.bot-btn {
+    background: #ff7e5f;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.bot-btn:hover {
+    background: #feb47b;
+}
+
+.bot-footer {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 8px;
+}
+
+.bot-footer input {
+    flex: 1;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.bot-footer button {
+    border-radius: 50%;
+    border: none;
+    background: #ff7e5f;
+    color: white;
+    width: 35px;
+    height: 35px;
+}
+
+.fxg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+.fxg-card img:hover {
+  transform: scale(1.05);
+}
+.fxg-card .btn:hover {
+  transform: translateY(-2px);
+}
+
+#productDetailModal img:hover {
+  transform: scale(1.05);
+}
+#productDetailModal .btn:hover {
+  transform: translateY(-2px);
+}
+#productDetailModal .modal-content:hover {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
