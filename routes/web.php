@@ -65,6 +65,10 @@ Route::middleware(['auth'])->group(function () {
             Route::view('/admin/users_verification', 'admin.pages.users_verification')->name('users_verification');
         });
 
+        // user Management 2.0
+        Route::middleware(['check.module.access:2000'])->group(function () {
+            
+        });
 
         // Audit Trail
         Route::middleware(['check.module.access:1006'])->group(function () {

@@ -1,5 +1,5 @@
 @php
-  $notifications = auth()->user()->notifications->toArray();
+$notifications = auth()->user()->notifications->toArray();
 @endphp
 
 <!-- HEADER -->
@@ -43,12 +43,12 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               @if (in_array(1002, auth()->user()->module_access()) || auth()->user()->isAdmin())
-                <li>
-                  <a class="dropdown-item d-flex align-items-center" href="{{ url('/admin/settings') }}">
-                    <i class="text-dark bi bi-gear"></i>
-                    <span>Settings</span>
-                  </a>
-                </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="{{ url('/admin/settings') }}">
+                  <i class="text-dark bi bi-gear"></i>
+                  <span>Settings</span>
+                </a>
+              </li>
               @endif
               <li>
                 <button form="logoutform" type="submit" class="dropdown-item d-flex align-items-center">
@@ -73,42 +73,105 @@
   <div class="offcanvas-body p-0">
     <ul class="sidebar-nav" id="sidebar-nav">
       @if (in_array(1, auth()->user()->module_access()) || auth()->user()->isAdmin())
-        <li class="nav-item">
-          <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin') }}">
-            <i class="text-dark bi bi-grid"></i>
-            <span class="text-dark">Dashboard</span>
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin') }}">
+          <i class="text-dark bi bi-grid"></i>
+          <span class="text-dark">Dashboard</span>
+        </a>
+      </li>
+      @endif
+      @if (in_array(2000, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/overview') }}">
+          <i class="text-dark bi bi-bar-chart-line"></i>
+          <span class="text-dark">Overview</span>
+        </a>
+      </li>
+      @endif
+
+      @if (in_array(2001, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/orders') }}">
+          <i class="text-dark bi bi-bag-check"></i>
+          <span class="text-dark">Order List</span>
+        </a>
+      </li>
+
+      @endif
+      @if (in_array(2002, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/customers') }}">
+          <i class="text-dark bi bi-person-lines-fill"></i>
+          <span class="text-dark">Customer Detail</span>
+        </a>
+      </li>
+      @endif
+
+      @if (in_array(2003, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/statistics') }}">
+          <i class="text-dark bi bi-graph-up-arrow"></i>
+          <span class="text-dark">All Static</span>
+        </a>
+      </li>
+      @endif
+
+      @if (in_array(2004, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/payment') }}">
+          <i class="text-dark bi bi-credit-card"></i>
+          <span class="text-dark">Payment</span>
+        </a>
+      </li>
+      @endif
+
+      @if (in_array(2005, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/products') }}">
+          <i class="text-dark bi bi-box-seam"></i>
+          <span class="text-dark">My Product</span>
+        </a>
+      </li>
+      @endif
+
+      @if (in_array(2006, auth()->user()->module_access()))
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/marketing') }}">
+          <i class="text-dark bi bi-megaphone"></i>
+          <span class="text-dark">Marketing Centre</span>
+        </a>
+      </li>
       @endif
 
       @if (in_array(1000, auth()->user()->module_access()) || auth()->user()->isAdmin())
-        <li class="nav-item">
-          <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin/users_management') }}">
-            <i class="text-dark bi bi-people"></i>
-            <span class="text-dark">User Management</span>
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin/users_management') }}">
+          <i class="text-dark bi bi-people"></i>
+          <span class="text-dark">User Management</span>
+        </a>
+      </li>
       @endif
 
 
       <li class="nav-heading text-dark fw-bold">Others</li>
 
       @if (in_array(1001, auth()->user()->module_access()) || auth()->user()->isAdmin())
-        <li class="nav-item">
-          <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin/audit') }}">
-            <i class="text-dark bi bi-card-list"></i>
-            <span class="text-dark">Audit Trail</span>
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin/audit') }}">
+          <i class="text-dark bi bi-card-list"></i>
+          <span class="text-dark">Audit Trail</span>
+        </a>
+      </li>
       @endif
       @if (in_array(1002, auth()->user()->module_access()) || auth()->user()->isAdmin())
-        <li class="nav-item">
-          <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin/settings') }}">
-            <i class="text-dark bi bi-gear"></i>
-            <span class="text-dark">Settings</span>
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin/settings') }}">
+          <i class="text-dark bi bi-gear"></i>
+          <span class="text-dark">Settings</span>
+        </a>
+      </li>
       @endif
+
 
       <li class="nav-item">
         <form action="{{ route('logout') }}" id="logoutform" method="POST">
@@ -123,6 +186,7 @@
   </div>
 
 </aside>
+
 <div class="modal fade" id="notificationmodal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
   role="dialog" aria-labelledby="notificationmodalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
@@ -136,17 +200,17 @@
       <div class="modal-body">
         <div class="list-group list-group-flush">
           @if (!empty($notifications))
-            @foreach ($notifications as $notification)
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">{{ $notification['title'] }}</h5>
-                  <small class="text-muted">{{ date('M/d/Y', strtotime($notification['created_at']))}}</small>
-                </div>
-                <p class="mb-1">{{ $notification['content'] }}</p>
-              </a>
-            @endforeach
+          @foreach ($notifications as $notification)
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ $notification['title'] }}</h5>
+              <small class="text-muted">{{ date('M/d/Y', strtotime($notification['created_at']))}}</small>
+            </div>
+            <p class="mb-1">{{ $notification['content'] }}</p>
+          </a>
+          @endforeach
           @else
-            <div class="text-center">No Notification</div>
+          <div class="text-center">No Notification</div>
           @endif
         </div>
       </div>
@@ -162,7 +226,7 @@
     $.ajax({
       type: 'GET',
       url: '/notifications/unread', // Update this to the correct route
-      success: function (response) {
+      success: function(response) {
         if (response.unread_count > 0) {
           // Show the notification icon with the alert badge
           $('.notification-bell').removeClass('d-none');
@@ -171,25 +235,25 @@
           $('.notification-bell').addClass('d-none');
         }
       },
-      error: function (xhr, status, error) {
+      error: function(xhr, status, error) {
         console.error("Error fetching notifications: " + error);
       }
     });
   }
-  $(document).on('click', '#notification-bell', function () {
+  $(document).on('click', '#notification-bell', function() {
     $.ajax({
       type: 'POST',
       url: '/notifications/mark-read',
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Add CSRF token
       },
-      success: function (response) {
+      success: function(response) {
         if (response.success) {
           // Optionally hide the notification alert after marking as read
           checkUnreadNotifications(); // Refresh the notification state
         }
       },
-      error: function (xhr, status, error) {
+      error: function(xhr, status, error) {
         console.error("Error marking notifications as read: " + error);
       }
     });

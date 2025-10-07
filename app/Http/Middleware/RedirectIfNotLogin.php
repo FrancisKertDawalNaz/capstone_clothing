@@ -18,12 +18,12 @@ class RedirectIfNotLogin
     {
         if (Auth::check()) {
             // Check if the user is not an admin
-            if (!Auth::user()->isAdmin() || !Auth::user()->isSubAdmin()) {
-                // Redirect to user dashboard or homepage
-                return response()->view('errors.no-access', [], 403);
-            } else {
-                return response()->view('errors.no-access', [], 403);
-            }
+            // if (!Auth::user()->isAdmin() || !Auth::user()->isSubAdmin()) {
+            //     // Redirect to user dashboard or homepage
+            //     return response()->view('errors.no-access', [], 403);
+            // } else {
+            //     return response()->view('errors.no-access', [], 403);
+            // }
         }
         return $next($request);
     }

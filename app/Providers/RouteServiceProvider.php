@@ -67,7 +67,7 @@ class RouteServiceProvider extends ServiceProvider
             if ($user->isAdmin()) {
                 return '/admin';
             } elseif ($user->isSubAdmin()) {
-                return '/admin/instructor_dashboard';
+                return '/admin';
             } elseif ($user->isVisitor()) {
                 return '/user/home';
             }

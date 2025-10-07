@@ -1,4 +1,5 @@
 function users_table() {
+    let type = 1; // Default to all users 
     if ($("#seller-tab").hasClass("active")) {
         type = 1;
     } else if ($("#customer-tab").hasClass("active")) {
