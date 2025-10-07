@@ -82,7 +82,7 @@ $notifications = auth()->user()->notifications->toArray();
       @endif
       @if (in_array(2000, auth()->user()->module_access()))
       <li class="nav-item">
-        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/overview') }}">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin') }}">
           <i class="text-dark bi bi-bar-chart-line"></i>
           <span class="text-dark">Overview</span>
         </a>
@@ -91,7 +91,7 @@ $notifications = auth()->user()->notifications->toArray();
 
       @if (in_array(2001, auth()->user()->module_access()))
       <li class="nav-item">
-        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/orders') }}">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/order_list') }}">
           <i class="text-dark bi bi-bag-check"></i>
           <span class="text-dark">Order List</span>
         </a>
@@ -100,7 +100,7 @@ $notifications = auth()->user()->notifications->toArray();
       @endif
       @if (in_array(2002, auth()->user()->module_access()))
       <li class="nav-item">
-        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/customers') }}">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/customer') }}">
           <i class="text-dark bi bi-person-lines-fill"></i>
           <span class="text-dark">Customer Detail</span>
         </a>
@@ -109,7 +109,7 @@ $notifications = auth()->user()->notifications->toArray();
 
       @if (in_array(2003, auth()->user()->module_access()))
       <li class="nav-item">
-        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/statistics') }}">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/static') }}">
           <i class="text-dark bi bi-graph-up-arrow"></i>
           <span class="text-dark">All Static</span>
         </a>
@@ -127,7 +127,7 @@ $notifications = auth()->user()->notifications->toArray();
 
       @if (in_array(2005, auth()->user()->module_access()))
       <li class="nav-item">
-        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/products') }}">
+        <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin/myproduct') }}">
           <i class="text-dark bi bi-box-seam"></i>
           <span class="text-dark">My Product</span>
         </a>

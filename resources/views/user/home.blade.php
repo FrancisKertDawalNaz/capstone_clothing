@@ -22,15 +22,20 @@
     </div>
 
     <div class="row g-4 mb-5">
-        <!-- Shop Card Template -->
+        @foreach($shops as $shop)
         <div class="col-md-4 mb-4">
             <div class="card h-100 border-0 shadow-lg shop-card">
                 <div class="position-relative overflow-hidden">
-                    <img src="{{ asset('img/shop1.jpg') }}" class="card-img-top" alt="Shop 1">
-                    <span class="badge bg-dark position-absolute top-0 end-0 m-2">New</span>
+                    @if($shop->logo)
+                    <img src="{{ asset('storage/' . $shop->logo) }}" class="card-img-top" alt="{{ $shop->shop_name }}">
+                    @else
+                    <img src="{{ asset('img/default-shop.jpg') }}" class="card-img-top" alt="{{ $shop->shop_name }}">
+                    @endif
                 </div>
                 <div class="card-body text-center">
-                    <h5 class="card-title fw-bold">Shop 1</h5>
+                    <h5 class="card-title fw-bold">{{ $shop->shop_name }}</h5>
+                    <p class="mb-2 text-muted">{{ $shop->address }}</p>
+
                     <p class="mb-2 text-warning">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -39,52 +44,14 @@
                         <i class="fas fa-star-half-alt"></i>
                         <span class="text-dark">(4.5/5)</span>
                     </p>
-                    <a href="#" class="btn btn-dark btn-gradient">Visit Shop</a>
-                </div>
-            </div>
-        </div>
 
-        <!-- Repeat for other shops with updated images and names -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 border-0 shadow-lg shop-card">
-                <div class="position-relative overflow-hidden">
-                    <img src="{{ asset('img/shop2.jpg') }}" class="card-img-top" alt="Shop 2">
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title fw-bold">Shop 2</h5>
-                    <p class="mb-2 text-warning">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="text-dark">(5/5)</span>
-                    </p>
-                    <a href="#" class="btn btn-dark btn-gradient">Visit Shop</a>
+                    <a href="{{ url('/shop/'.$shop->id) }}" class="btn btn-dark btn-gradient">Visit Shop</a>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 border-0 shadow-lg shop-card">
-                <div class="position-relative overflow-hidden">
-                    <img src="{{ asset('img/shop3.jpg') }}" class="card-img-top" alt="Shop 3">
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title fw-bold">Shop 3</h5>
-                    <p class="mb-2 text-warning">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <span class="text-dark">(4/5)</span>
-                    </p>
-                    <a href="#" class="btn btn-dark btn-gradient">Visit Shop</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
+
 
     <!-- AI Chatbot Floating Button -->
     <a href="#" id="aiChatBtn" class="btn btn-primary rounded-circle shadow-lg">
@@ -256,11 +223,6 @@
             </div>
         </div>
     </div>
-
-
-    
-
-    
 
 </main>
 

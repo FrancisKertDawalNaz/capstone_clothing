@@ -53,20 +53,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const cartOffcanvas = document.getElementById("offcanvasCart");
+if ($("main.shope-page").length) {
+    document.addEventListener("DOMContentLoaded", function () {
+        const cartOffcanvas = document.getElementById("offcanvasCart");
 
-    cartOffcanvas.addEventListener("show.bs.offcanvas", async function () {
-        try {
-            let res = await fetch(window.cartConfig.fetchUrl);
-            let data = await res.json();
+        cartOffcanvas.addEventListener("show.bs.offcanvas", async function () {
+            try {
+                let res = await fetch(window.cartConfig.fetchUrl);
+                let data = await res.json();
 
-            let container = document.getElementById("cartItemsContainer");
-            let subtotalEl = document.getElementById("cartSubtotal");
+                let container = document.getElementById("cartItemsContainer");
+                let subtotalEl = document.getElementById("cartSubtotal");
 
-            container.innerHTML = ""; // clear old items
-            data.items.forEach((item) => {
-                container.innerHTML += `
+                container.innerHTML = ""; // clear old items
+                data.items.forEach((item) => {
+                    container.innerHTML += `
                     <div class="d-flex align-items-center mb-3 p-3 bg-white rounded-4 shadow-sm">
                         <img src="${
                             item.image ? item.image : "/img/placeholder.jpg"
@@ -85,14 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
                         </button>
                     </div>
                 `;
-            });
+                });
 
-            subtotalEl.textContent = "₱" + parseFloat(data.subtotal).toFixed(2);
-        } catch (err) {
-            console.error("Failed to load cart items:", err);
-        }
+                subtotalEl.textContent =
+                    "₱" + parseFloat(data.subtotal).toFixed(2);
+            } catch (err) {
+                console.error("Failed to load cart items:", err);
+            }
+        });
     });
-});
+}
 
 // Remove cart item
 async function removeCartItem(id) {
@@ -116,4 +119,3 @@ async function removeCartItem(id) {
         console.error("Remove failed", err);
     }
 }
-

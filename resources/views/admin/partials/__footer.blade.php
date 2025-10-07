@@ -37,6 +37,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker/dist/js/datepicker-full.min.js"></script>
 
 <!-- MAPBOX -->
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
@@ -55,8 +57,8 @@
 <script src="{{ URL::asset('js/admin/app.js')}}"></script>
 <script
   src="{{ asset('js/admin/users_management.js') }}?v={{ filemtime(public_path('js/admin/users_management.js')) }}"></script>
-<script src="{{ asset('js/admin/test.js') }}?v={{ filemtime(public_path('js/admin/test.js')) }}"></script>
-<script src="{{ asset('js/admin/map.js') }}?v={{ filemtime(public_path('js/admin/map.js')) }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker/dist/js/datepicker-full.min.js"></script>
 
 
 @if(Request::routeIs('videocall'))
@@ -65,8 +67,11 @@
 <script src="{{ asset('js/config.js') }}"></script>
 @endif
 
+
 <script src="{{ URL::asset('js/chatbot.js')}}"></script>
 <script src="{{ URL::asset('js/product.js')}}"></script>
+<script src="{{ URL::asset('js/dashboard.js')}}"></script>
+
 </body>
 
 </html>

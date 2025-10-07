@@ -13,8 +13,10 @@ use App\Http\Controllers\ModuleAccessController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ShareableController;
 use App\Models\SchoolYearModel;
+use App\Http\Controllers\user\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\user\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +54,8 @@ Route::middleware(['auth'])->group(function () {
     // Admin routes
     Route::middleware(['admin'])->group(function () {
         // View Route
-        Route::get('/admin', [dashboardController::class, 'display_dashboard'])->name('admin.dashboard');
+
+
         // Settings
         Route::middleware(['check.module.access:1007'])->group(function () {
             Route::view('/admin/settings', 'admin.pages.settings')->name('settings');
@@ -67,7 +70,25 @@ Route::middleware(['auth'])->group(function () {
 
         // user Management 2.0
         Route::middleware(['check.module.access:2000'])->group(function () {
-            
+            Route::get('/admin', [dashboardController::class, 'display_dashboard'])->name('admin.dashboard');
+        });
+        Route::middleware(['check.module.access:2001'])->group(function () {
+            Route::get('/admin/order_list', [dashboardController::class, 'order_list'])->name('admin.order_list');
+        });
+        Route::middleware(['check.module.access:2002'])->group(function () {
+            Route::get('/admin/customer', [dashboardController::class, 'customer'])->name('admin.customer');
+        });
+        Route::middleware(['check.module.access:2003'])->group(function () {});
+        Route::middleware(['check.module.access:2004'])->group(function () {
+             Route::get('/admin/payment', [dashboardController::class, 'payment'])->name('admin.payment');
+        });
+        Route::middleware(['check.module.access:2005'])->group(function () {
+            Route::get('/admin/myproduct', [dashboardController::class, 'myproduct'])->name('admin.myproduct');
+            Route::post('/admin/add-product', [dashboardController::class, 'storeProduct'])->name('admin.storeProduct');
+            Route::post('/admin/add-shop', [dashboardController::class, 'storeShop'])->name('admin.storeShop');
+        });
+        Route::middleware(['check.module.access:2006'])->group(function () {
+            Route::get('/admin/marketing', [dashboardController::class, 'marketing'])->name('admin.marketing');
         });
 
         // Audit Trail
@@ -105,10 +126,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['visitor'])->group(function () {
 
-        Route::get('/user/home', function () {
-            return view('user.home');
-        })->name('user.home');
+        Route::get('/user/home', [HomeController::class, 'index'])->name('user.home');
 
+        Route::get('/shop/{id}', [ShopController::class, 'show'])->name('shop.show');
         Route::get('/shope', function () {
             return view('user.shope');
         })->name('shope');
@@ -116,10 +136,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user/check', [CartController::class, 'checkout'])->name('user.check');
         Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
         // Place order
-       Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
-
-
-
+        Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 
 
         // Cart routes
