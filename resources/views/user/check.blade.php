@@ -149,10 +149,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 </main>
 
 @include('user.partials.__footer')

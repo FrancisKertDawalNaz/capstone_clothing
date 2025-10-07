@@ -38,9 +38,9 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                   @if($product->image)
-                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->item_name }}" width="50" class="rounded">
+                  <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->item_name }}" width="50" class="rounded">
                   @else
-                    <img src="{{ asset('img/placeholder.png') }}" alt="No Image" width="50" class="rounded">
+                  <img src="{{ asset('img/placeholder.png') }}" alt="No Image" width="50" class="rounded">
                   @endif
                 </td>
                 <td>{{ $product->item_name }}</td>
@@ -97,30 +97,30 @@
             </thead>
             <tbody>
               @forelse ($shops as $shop)
-<tr>
-    <td>{{ $loop->iteration }}</td>
-    <td>
-        @if($shop->logo)
-            <img src="{{ asset('storage/'.$shop->logo) }}" alt="{{ $shop->shop_name }}" width="45" class="rounded">
-        @else
-            <img src="{{ asset('img/placeholder.png') }}" alt="No Logo" width="45" class="rounded">
-        @endif
-    </td>
-    <td>{{ $shop->shop_name }}</td>
-    <td>{{ $shop->owner_name}}</td>
-    <td>{{ $shop->contact }}</td>
-    <td>{{ $shop->address }}</td>
-    <td class="text-center">
-        <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
-        <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-    </td>
-</tr>
-@empty
-<tr>
-    <td colspan="7" class="text-center text-muted">No shops available.</td>
-</tr>
-@endforelse
+              <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>
+                  @if($shop->logo)
+                  <img src="{{ asset('storage/'.$shop->logo) }}" alt="{{ $shop->shop_name }}" width="45" class="rounded">
+                  @else
+                  <img src="{{ asset('img/placeholder.png') }}" alt="No Logo" width="45" class="rounded">
+                  @endif
+                </td>
+                <td>{{ $shop->shop_name }}</td>
+                <td>{{ $shop->owner_name}}</td>
+                <td>{{ $shop->contact }}</td>
+                <td>{{ $shop->address }}</td>
+                <td class="text-center">
+                  <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                  <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                  <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                </td>
+              </tr>
+              @empty
+              <tr>
+                <td colspan="7" class="text-center text-muted">No shops available.</td>
+              </tr>
+              @endforelse
   </section>
 
   <!-- Add Product Modal -->
@@ -134,10 +134,22 @@
         <div class="modal-body">
           <form action="{{ route('admin.storeProduct') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="mb-3 text-center">
-              <label for="productImage" class="form-label fw-semibold d-block">Product Image</label>
-              <img id="previewImage" src="{{ asset('img/placeholder.png') }}" alt="Preview" class="img-fluid mb-2 rounded" style="width: 120px; height: 120px; object-fit: cover;">
-              <input class="form-control" type="file" id="productImage" name="image" accept="image/*" onchange="previewProductImage(event)">
+
+            <!-- Shop Dropdown -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Select Shop</label>
+              <select name="shop_id" class="form-select" required>
+                <option value="" disabled selected>-- Choose Shop --</option>
+                @foreach($shops as $shop)
+                <option value="{{ $shop->id }}">{{ $shop->shop_name }}</option>
+                @endforeach
+              </select>
+            </div>
+
+            <!-- Product Image -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Product Image</label>
+              <input type="file" name="product_image" class="form-control" accept="image/*">
             </div>
 
             <div class="mb-3">
@@ -190,6 +202,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Add Shop Modal -->
   <div class="modal fade" id="addShopModal" tabindex="-1" aria-labelledby="addShopModalLabel" aria-hidden="true">

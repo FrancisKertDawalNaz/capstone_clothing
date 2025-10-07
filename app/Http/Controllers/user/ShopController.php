@@ -10,14 +10,12 @@ class ShopController extends Controller
 {
     public function show($id)
     {
-        // kunin yung shop gamit ID
         $shop = DB::table('shops')->where('id', $id)->first();
 
         if (!$shop) {
-            abort(404); // kung walang shop, error 404
+            abort(404, 'Shop not found');
         }
 
-        // kunin na rin products kung meron kang products table
         $products = DB::table('products')
             ->where('shop_id', $id)
             ->get();

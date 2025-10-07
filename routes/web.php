@@ -127,8 +127,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['visitor'])->group(function () {
 
         Route::get('/user/home', [HomeController::class, 'index'])->name('user.home');
+       Route::get('/shop/{id}', [ShopController::class, 'show'])->name('shop.show');
 
-        Route::get('/shop/{id}', [ShopController::class, 'show'])->name('shop.show');
         Route::get('/shope', function () {
             return view('user.shope');
         })->name('shope');

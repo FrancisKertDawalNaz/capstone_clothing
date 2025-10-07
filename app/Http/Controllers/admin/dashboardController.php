@@ -40,7 +40,7 @@ class dashboardController extends Controller
             ->take(3)
             ->get();
 
-        return view('admin.dashboard', compact('totalRevenue', 'totalUsers', 'newusers', 'gcashCount', 'codCount', 'topCustomers', 'recentProducts','shops'));
+        return view('admin.dashboard', compact('totalRevenue', 'totalUsers', 'newusers', 'gcashCount', 'codCount', 'topCustomers', 'recentProducts', 'shops'));
     }
 
     public function order_list()
@@ -119,25 +119,38 @@ class dashboardController extends Controller
 
     public function storeProduct(Request $request)
     {
-        $image = null;
+        $request->validate([
+            'shop_id'   => 'required|exists:shops,id',
+            'item_name' => 'required|string|max:255',
+            'brand'     => 'nullable|string|max:255',
+            'status'    => 'nullable|string|max:50',
+            'stocks'    => 'required|integer|min:0',
+            'price'     => 'required|numeric|min:0',
+            'product_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $imagePath = null;
         if ($request->hasFile('product_image')) {
-            $image = $request->file('product_image')->store('products', 'public');
+            // same style as shop logo
+            $imagePath = $request->file('product_image')->store('products', 'public');
         }
 
         DB::table('products')->insert([
-            'shop_id' => $request->shop_id,
+            'shop_id'   => $request->shop_id,
             'item_name' => $request->item_name,
-            'brand' => $request->brand,
-            'status' => $request->status,
-            'stocks' => $request->stocks,
-            'price' => $request->price,
-            'image' => $image,
+            'brand'     => $request->brand,
+            'status'    => $request->status,
+            'stocks'    => $request->stocks,
+            'price'     => $request->price,
+            'image'     => $imagePath,
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
 
         return redirect()->back()->with('success', 'Product added successfully!');
     }
+
+
 
 
     public function storeShop(Request $request)
@@ -166,5 +179,4 @@ class dashboardController extends Controller
 
         return redirect()->back()->with('success', 'Shop added successfully!');
     }
-  
 }
