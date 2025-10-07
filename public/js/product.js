@@ -54,7 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 if ($("main.shope-page").length) {
-    document.addEventListener("DOMContentLoaded", function () {
+    
+}
+
+document.addEventListener("DOMContentLoaded", function () {
         const cartOffcanvas = document.getElementById("offcanvasCart");
 
         cartOffcanvas.addEventListener("show.bs.offcanvas", async function () {
@@ -95,7 +98,6 @@ if ($("main.shope-page").length) {
             }
         });
     });
-}
 
 // Remove cart item
 async function removeCartItem(id) {
