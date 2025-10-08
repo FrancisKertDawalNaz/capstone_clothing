@@ -4,18 +4,18 @@ $notifications = auth()->user()->notifications->toArray();
 
 <!-- HEADER -->
 <header class="fixed-top">
-  <div class="d-flex justify-content-between align-items-center bg-white px-3 py-2 shadow-sm">
+  <div class="d-flex justify-content-between align-items-center bg-warning px-3 py-2 shadow-sm">
 
     <!-- LEFT SIDE (Logo for desktop, Toggle for mobile) -->
     <div class="d-flex align-items-center">
       <!-- Mobile Toggle Button -->
       <button class="btn d-lg-none border-0 fs-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
         aria-controls="sidebar">
-        <i class="bi bi-list text-dark"></i>
+        <i class="bi bi-list text-light"></i>
       </button>
 
       <div class="d-none d-lg-block ms-2">
-        <h5 class="mb-0 fw-bold text-dark">{{ $appInfo->app_name ?? '' }}</h5>
+        <h5 class="mb-0 fw-bold text-light">{{ $appInfo->app_name ?? '' }}</h5>
       </div>
     </div>
 
@@ -27,7 +27,7 @@ $notifications = auth()->user()->notifications->toArray();
             <!-- Notification Bell -->
             <a href="#notification" data-bs-toggle="modal" data-bs-target="#notificationmodal" id="notification-bell"
               class="me-4 fs-2 position-relative">
-              <i class="text-dark bi bi-bell"></i>
+              <i class="text-light bi bi-bell-fill"></i>
               <span
                 class="notification-bell position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                 <span class="visually-hidden">New alerts</span>
@@ -35,10 +35,10 @@ $notifications = auth()->user()->notifications->toArray();
             </a>
 
             <!-- Profile Dropdown -->
-            <a class="nav-link bg-transparent border-0 text-dark nav-profile d-flex align-items-center pe-0" href="#"
+            <a class="nav-link bg-transparent border-0 text-light nav-profile d-flex align-items-center pe-0" href="#"
               data-bs-toggle="dropdown">
               <img
-                src="{{ Auth::user()->profile_img != '' ? asset('storage/' . Auth::user()->profile_img) : URL::asset('img/gray-male-icon.png') }}"
+                src="{{ Auth::user()->profile_img != '' ? asset('storage/' . Auth::user()->profile_img) : URL::asset('img/user.png') }}"
                 alt="Profile" class="rounded-circle">
             </a>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

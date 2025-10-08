@@ -773,6 +773,25 @@ h6 {
   background-color: #4154f1;
 }
 
+/* Sidebar hover effect - change to warning color */
+.sidebar-nav .nav-link:hover {
+  background: #ffc107 !important;  /* Bootstrap warning background */
+  color: #fff !important;          /* White text for contrast */
+}
+
+.sidebar-nav .nav-link:hover i {
+  color: #fff !important;          /* Make icon white on hover */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #ffc107 !important;
+  color: #fff !important;
+}
+
+.sidebar-nav .nav-link.active i {
+  color: #fff !important;
+}
+
 /*--------------------------------------------------------------
 # Dashboard
 --------------------------------------------------------------*/

@@ -93,8 +93,8 @@
             <h4 class="fw-semibold mt-4 mb-3">Payment Options</h4>
             <div class="mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment" value="Mobile Pay" checked>
-                    <label class="form-check-label">Mobile Pay</label>
+                    <input class="form-check-input" type="radio" name="payment" value="Gcash" checked>
+                    <label class="form-check-label">GCash</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="payment" value="Cash on Delivery">
