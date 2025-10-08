@@ -1,5 +1,8 @@
 if ($("main.checkout-page").length) {
-    document
+    
+}
+
+document
         .getElementById("checkoutForm")
         .addEventListener("submit", function (e) {
             e.preventDefault();
@@ -25,4 +28,3 @@ if ($("main.checkout-page").length) {
                 })
                 .catch((err) => console.error(err));
         });
-}

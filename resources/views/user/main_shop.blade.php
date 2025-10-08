@@ -20,18 +20,33 @@
                         class="card-img-top"
                         alt="{{ $product->item_name }}">
 
-                    <div class="card-body text-center">
+                    <div class="card-body text-center d-flex flex-column">
                         <h6 class="fw-bold">{{ $product->item_name }}</h6>
                         <p class="text-muted">{{ $product->brand }}</p>
                         <p class="mb-1">Status: <span class="fw-bold">{{ $product->status }}</span></p>
                         <p class="mb-1">Stocks: {{ $product->stocks }}</p>
                         <p class="text-dark fw-bold">₱{{ number_format($product->price, 2) }}</p>
+
+                        <!-- Buttons -->
+                        <div class="mt-auto d-grid gap-2">
+                            <a href="#" class="btn btn-warning btn-sm w-100">
+                                Rent Now
+                            </a>
+                            <a href="#" class="btn btn-primary btn-sm w-100">
+                                Buy Now
+                            </a>
+                            <a href="#" class="btn btn-success btn-sm w-100">
+                                Add to Cart
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
     </div>
+
 
     <!-- Cart Offcanvas -->
     <div class="offcanvas offcanvas-end border-0 shadow-lg" tabindex="-1" id="offcanvasCart">
