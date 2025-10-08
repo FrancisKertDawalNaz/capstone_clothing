@@ -779,9 +779,12 @@ h6 {
   color: #fff !important;          /* White text for contrast */
 }
 
-.sidebar-nav .nav-link:hover i {
-  color: #fff !important;          /* Make icon white on hover */
+.sidebar-nav .nav-link:hover span,.sidebar-nav .nav-link:hover i {
+  color: #fff !important;  
+          /* Make icon white on hover */
 }
+
+
 
 .sidebar-nav .nav-link.active {
   background: #ffc107 !important;
