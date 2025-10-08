@@ -94,8 +94,18 @@ $imgSrc = asset('img/placeholder.jpg');
                                 <input type="hidden" name="price" value="{{ $priceNumeric }}">
                                 <input type="hidden" name="image" value="{{ $product['img'] ?? '' }}">
                                 <input type="hidden" name="shop" value="{{ $product['shop'] ?? '' }}">
-                                <input type="hidden" name="qty" id="qtyInput" value="1">
                                 <input type="hidden" name="duration" id="durationInput" value="Not selected">
+
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <label class="fw-semibold mb-0">Quantity:</label>
+                                    <div class="input-group" style="width:120px;">
+                                        <button type="button" class="btn btn-outline-secondary" id="qtyMinus">-</button>
+                                        <input type="text" name="qty" id="qtyInput" class="form-control text-center" value="1" readonly>
+                                        <button type="button" class="btn btn-outline-secondary" id="qtyPlus">+</button>
+                                    </div>
+                                </div>
+
+
 
                                 <button type="button"
                                     id="addToCartBtn"

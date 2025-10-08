@@ -121,3 +121,88 @@ async function removeCartItem(id) {
         console.error("Remove failed", err);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const qtyInput = document.getElementById("qtyInput");
+    const btnPlus = document.getElementById("qtyPlus");
+    const btnMinus = document.getElementById("qtyMinus");
+    const addToCartBtn = document.getElementById("addToCartBtn");
+
+    // Quantity buttons
+    if (btnPlus && btnMinus && qtyInput) {
+        btnPlus.addEventListener("click", () => {
+            qtyInput.value = (parseInt(qtyInput.value) || 1) + 1;
+        });
+        btnMinus.addEventListener("click", () => {
+            let current = parseInt(qtyInput.value) || 1;
+            if (current > 1) qtyInput.value = current - 1;
+        });
+    }
+
+    // Add to Cart
+    if (addToCartBtn) {
+        // Remove any previous click listeners (in case script loaded multiple times)
+        const newButton = addToCartBtn.cloneNode(true);
+        addToCartBtn.parentNode.replaceChild(newButton, addToCartBtn);
+
+        newButton.addEventListener("click", async function (e) {
+            e.preventDefault();
+            newButton.disabled = true;
+
+            const product = JSON.parse(this.dataset.product);
+            const qtyValue = parseInt(qtyInput.value) || 1;
+            const priceNumber = parseFloat(product.price.toString().replace(/[^0-9\.]/g, "")) || 0;
+
+            try {
+                const res = await fetch(window.cartConfig.storeUrl, {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": window.cartConfig.csrfToken,
+                        Accept: "application/json"
+                    },
+                    body: new URLSearchParams({
+                        product_id: product.id ?? "",
+                        name: product.name,
+                        price: priceNumber,
+                        image: product.img ?? "",
+                        shop: product.shop ?? "",
+                        qty: qtyValue,
+                        duration: "Not selected"
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Added to Cart!",
+                        text: data.message ?? "Product added successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: data.message ?? "Something went wrong!"
+                    });
+                }
+            } catch (err) {
+                console.error(err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Failed to connect to server."
+                });
+            } finally {
+                newButton.disabled = false;
+            }
+        });
+    }
+});
+
+
+
+
+
