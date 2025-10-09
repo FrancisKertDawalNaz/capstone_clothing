@@ -37,6 +37,7 @@ Route::get('/', function () {
 Route::get('/user/ladies', [HomeController::class, 'ladies'])->name('user.ladies');
 
 
+
 Route::get('/home', function () {
     return view('welcome');
 })->middleware('redirect.nonlogin');
