@@ -1,7 +1,8 @@
 @include('user.partials.__header')
 @include('user.partials.__nav')
 
-<main id="main" class="main page-center">
+
+<main id="main" class="main page-center pt-5">
 
     <div class="row mb-5 row align-items-center">
         <div class="col-md-4 mb-3">

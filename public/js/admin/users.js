@@ -4,6 +4,8 @@ function users_table() {
         type = 1;
     } else if ($("#customer-tab").hasClass("active")) {
         type = 2;
+    }else if ($("#rider-tab").hasClass("active")) {
+        type = 3;
     }
     $.ajax({
         type: "GET",

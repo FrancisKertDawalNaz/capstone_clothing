@@ -1,45 +1,111 @@
 @include('partials.__header')
-
 @include('partials.__nav')
 <main>
-    <div class="row align-items-center mb-5">
-        <!-- Image First -->
-        <div class="col-md-6 text-center">
-            <img src="{{ asset('img/mainpic.jpg') }}" class="img-fluid rounded" alt="Fashion Hero">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-6 text-center">
+                        <img src="{{ asset('img/mainpic.jpg') }}" class="img-fluid rounded" alt="Fashion Hero">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="fw-bold">Welcome to our Digital Fashion Hub!</h1>
+                        <p class="lead">
+                            Renting clothes is presented as a stylish, sustainable, and budget-friendly alternative
+                            to buying new items, allowing for access to a variety of looks and trends without
+                            the commitment of ownership.
+                        </p>
+                        <a href="#" class="btn btn-dark">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <!-- Second slide -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-6 text-center">
+                        <img src="{{ asset('img/main2.jpg') }}" class="img-fluid rounded" alt="Slide Two">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="fw-bold">Discover Our Collection</h1>
+                        <p class="lead">Check out the latest trends and rent what you love.</p>
+                        <a href="#" class="btn btn-dark">Explore Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <!-- Third slide -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-6 text-center">
+                        <img src="{{ asset('img/main3.jpg') }}" class="img-fluid rounded" alt="Slide Three">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="fw-bold">Fashion For Every Occasion</h1>
+                        <p class="lead">From casual to formal, find the perfect outfit to match your event.</p>
+                        <a href="#" class="btn btn-dark">Shop Styles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <!-- Fourth slide -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-6 text-center">
+                        <img src="{{ asset('img/main4.jpg') }}" class="img-fluid rounded" alt="Slide Four">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="fw-bold">Affordable Luxury</h1>
+                        <p class="lead">Look your best without breaking the bank. Rent designer looks today.</p>
+                        <a href="#" class="btn btn-dark">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add more slides as needed -->
+
         </div>
 
-        <!-- Text Second -->
-        <div class="col-md-6">
-            <h1 class="fw-bold">Welcome to our Digital Fashion Hub!</h1>
-            <p class="lead">
-                Renting clothes is presented as a stylish, sustainable, and budget-friendly alternative
-                to buying new items, allowing for access to a variety of looks and trends without
-                the commitment of ownership.
-            </p>
-            <a href="#" class="btn btn-dark">Rent Now</a>
-        </div>
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+
 
     <div class="row text-center img-category mb-5">
         <div class="col">
             <img src="{{ asset('img/ladies.jpg') }}" class="img-fluid rounded mb-2" alt="Ladies">
             <p>Ladies</p>
+            <a href="{{ route('user.ladies') }}" class="btn btn-dark mt-1" style="padding: 5px 25px;">View</a>
         </div>
         <div class="col">
             <img src="{{ asset('img/gens.jpg') }}" class="img-fluid rounded mb-2" alt="Gents">
             <p>Gents</p>
+            <button class="btn btn-dark mt-1" style="padding: 5px 25px;">View</button>
         </div>
         <div class="col">
             <img src="{{ asset('img/shoes.jpg') }}" class="img-fluid rounded mb-2" alt="Shoes">
             <p>Shoes</p>
+            <button class="btn btn-dark mt-1" style="padding: 5px 25px;">View</button>
         </div>
         <div class="col">
             <img src="{{ asset('img/acces.jpg') }}" class="img-fluid rounded mb-2" alt="Accessories">
             <p>Accessories</p>
+            <button class="btn btn-dark mt-1" style="padding: 5px 25px;">View</button>
         </div>
         <div class="col">
             <img src="{{ asset('img/kids.jpg') }}" class="img-fluid rounded mb-2" alt="Kids">
             <p>Kids</p>
+            <button class="btn btn-dark mt-1" style="padding: 5px 25px;">View</button>
         </div>
     </div>
 

@@ -34,6 +34,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home')->middleware('redirect.nonlogin');
 
+Route::get('/user/ladies', [HomeController::class, 'ladies'])->name('user.ladies');
+
 
 Route::get('/home', function () {
     return view('welcome');
@@ -63,10 +65,18 @@ Route::middleware(['auth'])->group(function () {
         // User Management
         Route::middleware(['check.module.access:1000'])->group(function () {
             Route::get('/admin/add_seller_account', [UsersController::class, 'add_seller_account']);
+            Route::get('/admin/add_rider_account', [UsersController::class, 'add_rider_account']);
             Route::post('/admin/submit_seller_account', [UsersController::class, 'submit_seller_account']);
+            Route::post('/admin/submit_rider_account', [UsersController::class, 'submit_rider_account']);
             Route::view('/admin/users_management', 'admin.pages.users_management')->name('users_management');
             Route::view('/admin/users_verification', 'admin.pages.users_verification')->name('users_verification');
         });
+
+        // user Management 3.0
+        Route::middleware(['check.module.access:3000'])->group(function () {
+            Route::get('/admin/riderhome', [dashboardController::class, 'rider'])->name('admin.riderhome');
+        });
+
 
         // user Management 2.0
         Route::middleware(['check.module.access:2000'])->group(function () {
@@ -91,6 +101,9 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/admin/marketing', [dashboardController::class, 'marketing'])->name('admin.marketing');
         });
 
+
+        
+
         // Audit Trail
         Route::middleware(['check.module.access:1006'])->group(function () {
             Route::view('/admin/audit', 'admin.pages.audit')->name('audit');
@@ -100,6 +113,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/admin/get_users', [UsersController::class, 'get_users'])->name('get_users');
         Route::get('/admin/get_audit', [AuditController::class, 'index'])->name('get_audit');
+
 
         Route::middleware(['web'])->group(function () {
             // Function routes
@@ -126,8 +140,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['visitor'])->group(function () {
 
-        Route::get('/user/home', [HomeController::class, 'index'])->name('user.home');
+       Route::get('/user/home', [HomeController::class, 'index'])->name('user.home');
        Route::get('/shop/{id}', [ShopController::class, 'show'])->name('shop.show');
+       Route::get('/user/driverhome', [HomeController::class, 'driverhome'])->name('user.driverhome');
 
         Route::get('/shope', function () {
             return view('user.shope');
@@ -160,6 +175,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/user/about', function () {
                 return view('user.pages.about');
             })->name('user.about');
+            
         });
     });
 

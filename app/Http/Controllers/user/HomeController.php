@@ -15,4 +15,12 @@ class HomeController extends Controller
         // ibalik sa view
         return view('user.home', compact('shops'));
     }
+
+    public function ladies()
+    {
+        return view('user.ladies');
+    }
+    
+
+  
 }

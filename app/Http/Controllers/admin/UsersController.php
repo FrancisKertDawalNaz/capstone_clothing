@@ -34,6 +34,12 @@ class UsersController extends Controller
         return view('admin.pages.inputs.add_seller_account');
     }
 
+    public function add_rider_account()
+    {
+        return view('admin.pages.inputs.add_rider_account');
+    }
+
+
     public function updateProfile(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -110,10 +116,21 @@ class UsersController extends Controller
                 'user_verification.id_type',
                 'user_verification.id_file_url',
                 DB::raw('COALESCE(user_verification.userStatus, "3") as userStatus')
-            )
-            ->where('users.user_type', $userType)
-            ->get();
-        return response()->json($get_users);
+            );
+
+        if ($userType == 3) {
+            $sub_query = $get_users->where('users.user_type', 1)
+                ->where('users.is_rider', 1)
+                ->get();
+        } elseif ($userType == 2) {
+            $sub_query = $get_users->where('users.user_type', $userType)->get();
+        } elseif ($userType == 1) {
+            $sub_query = $get_users->where('users.user_type', 1)
+                ->whereNot('users.is_rider', 1)
+                ->get();
+        }
+
+        return response()->json($sub_query);
     }
     public function verifyUser(Request $request)
     {
@@ -164,6 +181,49 @@ class UsersController extends Controller
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->user_type = $request->input('user_type');
+        $user->save();
+
+        $moduleCodes = [];
+        foreach ($moduleCodes as $code) {
+            ModuleAccessModel::create([
+                'userID' => $user->id,
+                'module_code' => $code,
+            ]);
+        }
+
+        AuditController::logging('Add account', 'Account created successfully for ' . $request->input('fullname'), $request);
+
+        return response()->json([
+            'message' => 'Account created successfully. Email and password have been sent to ' . $request->email
+        ], 200);
+    }
+
+    public function submit_rider_account(Request $request)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'fullname' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'nullable|min:8|confirmed',
+            'user_type' => 'required|in:1,2',
+        ]);
+
+        if ($validator->fails()) {
+
+            AuditController::logging('Add account', 'Add account failed: ' . $request->input('email'), $request);
+
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+
+        $user = new User();
+        $user->name = $request->input('fullname');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->user_type = $request->input('user_type');
+        $user->is_rider = 1;
         $user->save();
 
         $moduleCodes = [];

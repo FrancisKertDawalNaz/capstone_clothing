@@ -23,6 +23,14 @@
                         </li>
 
                         <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-semibold choose-type" id="rider-tab" data-bs-toggle="tab"
+                                data-bs-target="#rider" type="button" role="tab" aria-controls="rider"
+                                aria-selected="false">
+                                Rider
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
                             <button class="nav-link fw-semibold choose-type" id="customer-tab" data-bs-toggle="tab"
                                 data-bs-target="#customer" type="button" role="tab" aria-controls="customer"
                                 aria-selected="false">
@@ -34,7 +42,8 @@
                     <!-- Add Account Button -->
                     <a href="{{ url('admin/add_seller_account') }}" class="btn btn-primary btn-sm ms-3" id="addAccountBtn"
                         data-seller-url="{{ url('admin/add_seller_account') }}"
-                        data-customer-url="{{ url('admin/add_customer_account') }}">
+                        data-customer-url="{{ url('admin/add_customer_account') }}" 
+                        data-rider-url="{{ url('admin/add_rider_account') }}">
                         <i class="bi bi-plus-circle me-1"></i> Add Account
                     </a>
                 </div>

@@ -17,74 +17,75 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <!-- Shops Mega Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="shopsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Shops
-          </a>
-          <div class="dropdown-menu p-4" aria-labelledby="shopsDropdown" style="width: 600px;">
-            <div class="row">
-              <div class="col-md-4">
-                <h6 class="dropdown-header">Categories</h6>
-                <a class="dropdown-item" href="#">Men's Wear</a>
-                <a class="dropdown-item" href="#">Women's Wear</a>
-                <a class="dropdown-item" href="#">Kids</a>
-                <a class="dropdown-item" href="#">Accessories</a>
-              </div>
-              <div class="col-md-4">
-                <h6 class="dropdown-header">Brands</h6>
-                <a class="dropdown-item" href="#">Brand A</a>
-                <a class="dropdown-item" href="#">Brand B</a>
-                <a class="dropdown-item" href="#">Brand C</a>
-              </div>
-              <div class="col-md-4">
-                <img src="{{ asset('img/ladies.jpg') }}" alt="Promo" class="img-fluid rounded">
-                <p class="mt-2 small text-muted">Check out our latest promotions!</p>
-              </div>
-            </div>
-          </div>
-        </li>
+                <!-- Mega Menu for Shops -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="shopsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Shops
+                    </a>
+                    <div class="dropdown-menu p-4" aria-labelledby="shopsDropdown" style="width: 600px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6 class="dropdown-header">Categories</h6>
+                                <a class="dropdown-item" href="#">Men's Wear</a>
+                                <a class="dropdown-item" href="#">Women's Wear</a>
+                                <a class="dropdown-item" href="#">Kids</a>
+                                <a class="dropdown-item" href="#">Accessories</a>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="dropdown-header">Featured Brands</h6>
+                                <a class="dropdown-item" href="#">Brand A</a>
+                                <a class="dropdown-item" href="#">Brand B</a>
+                                <a class="dropdown-item" href="#">Brand C</a>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{{ asset('img/ladies.jpg') }}" alt="Promo" class="img-fluid rounded">
+                                <p class="mt-2 small text-muted">Check out our latest promotions and offers!</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
 
-        <!-- New Arrivals Mega Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="newArrivalsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            New Arrivals
-          </a>
-          <div class="dropdown-menu p-3" aria-labelledby="newArrivalsDropdown" style="width: 400px;">
-            <a class="dropdown-item" href="#">Men's Collection</a>
-            <a class="dropdown-item" href="#">Women's Collection</a>
-            <a class="dropdown-item" href="#">Kids' Collection</a>
-          </div>
-        </li>
+                <!-- Simple Dropdown Example -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="newArrivalsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        New Arrivals
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="newArrivalsDropdown">
+                        <li><a class="dropdown-item" href="#">Men</a></li>
+                        <li><a class="dropdown-item" href="#">Women</a></li>
+                        <li><a class="dropdown-item" href="#">Kids</a></li>
+                    </ul>
+                </li>
 
-        <!-- Occasions Mega Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="occasionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Occasions
-          </a>
-          <div class="dropdown-menu p-3" aria-labelledby="occasionsDropdown" style="width: 400px;">
-            <a class="dropdown-item" href="#">Weddings</a>
-            <a class="dropdown-item" href="#">Birthdays</a>
-            <a class="dropdown-item" href="#">Casual</a>
-            <a class="dropdown-item" href="#">Formal</a>
-          </div>
-        </li>
+                <!-- Occasions Mega Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="occasionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Occasions
+                    </a>
+                    <div class="dropdown-menu p-3" aria-labelledby="occasionsDropdown" style="width: 400px;">
+                        <a class="dropdown-item" href="#">Weddings</a>
+                        <a class="dropdown-item" href="#">Birthdays</a>
+                        <a class="dropdown-item" href="#">Casual</a>
+                        <a class="dropdown-item" href="#">Formal</a>
+                    </div>
+                </li>
 
-        <!-- How It Works Mega Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="howItWorksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            How It Works
-          </a>
-          <div class="dropdown-menu p-3" aria-labelledby="howItWorksDropdown" style="width: 400px;">
-            <a class="dropdown-item" href="#">Browse Products</a>
-            <a class="dropdown-item" href="#">Add to Cart</a>
-            <a class="dropdown-item" href="#">Checkout</a>
-            <a class="dropdown-item" href="#">Delivery & Returns</a>
-          </div>
-        </li>
-      </ul>
+                <!-- How It Works Mega Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="howItWorksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        How It Works
+                    </a>
+                    <div class="dropdown-menu p-3" aria-labelledby="howItWorksDropdown" style="width: 400px;">
+                        <a class="dropdown-item" href="#">Browse Products</a>
+                        <a class="dropdown-item" href="#">Add to Cart</a>
+                        <a class="dropdown-item" href="#">Checkout</a>
+                        <a class="dropdown-item" href="#">Delivery & Returns</a>
+                    </div>
+                </li>
+
+            </ul>
 
       <form class="d-flex me-3">
         <input class="form-control me-2" type="search" placeholder="Search Products">

@@ -1270,4 +1270,32 @@ h6 {
   border-left: 3px solid rgb(255, 213, 44)
 }
 
-  
+  .img-category .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-category img {
+    width: 200px; /* adjust image size */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.img-category img:hover {
+    transform: scale(1.05);
+}
+
+.img-category p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.img-category .btn-view {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}

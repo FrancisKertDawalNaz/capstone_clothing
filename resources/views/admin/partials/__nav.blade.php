@@ -80,6 +80,14 @@ $notifications = auth()->user()->notifications->toArray();
         </a>
       </li>
       @endif
+       @if (in_array(1, auth()->user()->module_access()) || auth()->user()->isAdmin())
+      <li class="nav-item">
+        <a class="nav-link bg-transparent border border-0 text-dark " href="{{ url('/admin') }}">
+          <i class="text-dark bi bi-grid"></i>
+          <span class="text-dark">Dashboard</span>
+        </a>
+      </li>
+      @endif
       @if (in_array(2000, auth()->user()->module_access()))
       <li class="nav-item">
         <a class="nav-link bg-transparent border border-0 text-dark" href="{{ url('/admin') }}">

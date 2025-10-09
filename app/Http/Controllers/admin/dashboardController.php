@@ -43,6 +43,11 @@ class dashboardController extends Controller
         return view('admin.dashboard', compact('totalRevenue', 'totalUsers', 'newusers', 'gcashCount', 'codCount', 'topCustomers', 'recentProducts', 'shops'));
     }
 
+     public function rider()
+    {
+        return view('admin.riderhome');
+    }
+
     public function order_list()
     {
         $orders = DB::table('orders')
@@ -179,4 +184,8 @@ class dashboardController extends Controller
 
         return redirect()->back()->with('success', 'Shop added successfully!');
     }
+
+    
+
+
 }
