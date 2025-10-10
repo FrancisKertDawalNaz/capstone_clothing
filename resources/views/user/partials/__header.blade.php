@@ -25,7 +25,8 @@
   <link href="{{ URL::asset('theme/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ URL::asset('theme/assets/css/customer.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/customer.css') }}">
   
   <!-- Summernote -->
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">

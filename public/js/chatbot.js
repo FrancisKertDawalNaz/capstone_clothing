@@ -467,3 +467,13 @@ ${prod.name}
         });
     }
 });
+
+
+document.getElementById('aiChatBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('fashionBot').classList.add('show');
+});
+
+document.getElementById('closeBot').addEventListener('click', function() {
+  document.getElementById('fashionBot').classList.remove('show');
+});

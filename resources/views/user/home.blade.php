@@ -1,10 +1,12 @@
 @include('user.partials.__header')
 @include('user.partials.__nav')
 
-
 <main id="main" class="main page-center pt-5">
 
-    <div class="row mb-5 row align-items-center">
+  <!-- ✅ Main container for page content -->
+  <div class="container">
+
+    <div class="row mb-5 align-items-center">
         <div class="col-md-4 mb-3">
             <img src="{{ asset('img/damit.jpg') }}" class="img-fluid rounded" alt="Ladies">
         </div>
@@ -16,10 +18,9 @@
         </div>
     </div>
 
-
     <!-- Just In Section -->
     <div class="text-center mb-5 justin-section">
-        <h2 class="fw-bold">Rent clothes with you favorite brands and shop</h2>
+        <h2 class="fw-bold">Rent clothes with your favorite brands and shop</h2>
     </div>
 
     <div class="row g-4 mb-5">
@@ -28,9 +29,9 @@
             <div class="card h-100 border-0 shadow-lg shop-card">
                 <div class="position-relative overflow-hidden">
                     @if($shop->logo)
-                    <img src="{{ asset('storage/' . $shop->logo) }}" class="card-img-top" alt="{{ $shop->shop_name }}">
+                        <img src="{{ asset('storage/' . $shop->logo) }}" class="card-img-top" alt="{{ $shop->shop_name }}">
                     @else
-                    <img src="{{ asset('img/default-shop.jpg') }}" class="card-img-top" alt="{{ $shop->shop_name }}">
+                        <img src="{{ asset('img/default-shop.jpg') }}" class="card-img-top" alt="{{ $shop->shop_name }}">
                     @endif
                 </div>
                 <div class="card-body text-center">
@@ -51,117 +52,6 @@
             </div>
         </div>
         @endforeach
-    </div>
-
-
-    <!-- AI Chatbot Floating Button -->
-    <a href="#" id="aiChatBtn" class="btn btn-primary rounded-circle shadow-lg">
-        <i class="fas fa-robot fa-lg"></i>
-    </a>
-
-    <!-- Chatbot Container -->
-    <div class="fashionbot" id="fashionBot">
-        <div class="bot-header">
-            <span><i class="fas fa-robot"></i> Fashionbot</span>
-            <button id="closeBot" class="btn-close"></button>
-        </div>
-        <div class="bot-body" id="botBody">
-            <!-- Bot messages and buttons will go here -->
-            <div class="bot-message">
-                Welcome to Fashionbot! Ready to discover your next stylish look? 😊
-            </div>
-            <div class="bot-message">
-                I'm here to assist you with everything you need today.
-            </div>
-            <div class="bot-buttons">
-                <button class="bot-btn">Rent Now!</button>
-                <button class="bot-btn">About Us</button>
-                <button class="bot-btn">Contact Us</button>
-            </div>
-        </div>
-        <div class="bot-footer">
-            <input type="text" id="botInput" placeholder="Type your answer...">
-            <button id="sendBotBtn"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <!-- Product Detail Modal -->
-    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg" style="border-radius:20px;overflow:hidden;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);">
-                <div class="modal-body p-0">
-                    <div class="row g-0">
-
-                        <!-- Product Image -->
-                        <div class="col-md-5 position-relative">
-                            <img id="modalProductImg" src="https://via.placeholder.com/600x800" alt="Product" class="w-100 h-100" style="object-fit:cover;">
-                            <span class="position-absolute top-0 start-0 m-3 badge bg-dark px-3 py-2" style="font-size:0.85rem;">Best Seller</span>
-                        </div>
-
-                        <!-- Product Details -->
-                        <div class="col-md-7 p-4 d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h4 id="modalProductName" class="fw-bold mb-0 text-dark">Elegant Linen Dress</h4>
-                                <span class="text-end small text-muted">
-                                    Shop 1<br><span style="color:#FFD700;">★★★★★</span>
-                                </span>
-                            </div>
-
-                            <div class="mb-3">
-                                <p id="modalProductDesc" class="text-secondary" style="font-size:0.95rem;">
-                                    Soft-touch linen fabric with minimal stitching detail. Perfect for everyday wear and weekend getaways.
-                                </p>
-                            </div>
-
-                            <div class="mb-3">
-                                <strong class="d-block mb-1 text-dark">Inclusions</strong>
-                                <ul id="modalProductInclusions" class="ps-3 mb-0 text-secondary" style="font-size:0.9rem;line-height:1.6;">
-                                    <li>Eco-friendly packaging</li>
-                                    <li>Free shipping</li>
-                                </ul>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <div class="text-dark fw-semibold mb-1">Size</div>
-                                    <select class="form-select form-select-sm shadow-sm border-light rounded-pill">
-                                        <option>Small</option>
-                                        <option selected>Medium</option>
-                                        <option>Large</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <div class="text-dark fw-semibold mb-1">Quantity</div>
-                                    <div class="d-flex align-items-center">
-                                        <button class="btn btn-light border rounded-circle px-2 py-1" id="modalQtyMinus">−</button>
-                                        <span id="modalQty" class="mx-3 fw-semibold">1</span>
-                                        <button class="btn btn-light border rounded-circle px-2 py-1" id="modalQtyPlus">+</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-4">
-                                <div class="col-6">
-                                    <div class="text-dark fw-semibold mb-1">Duration</div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-outline-dark btn-sm rounded-pill px-3">1–2 days</button>
-                                        <button class="btn btn-outline-dark btn-sm rounded-pill px-3">3–4 days</button>
-                                    </div>
-                                </div>
-                                <div class="col-6 text-end align-self-end">
-                                    <h4 class="fw-bold text-dark mb-0">₱<span id="modalProductPrice">1,500.00</span></h4>
-                                </div>
-                            </div>
-
-                            <div class="mt-auto d-flex gap-2">
-                                <button class="btn btn-dark rounded-pill flex-fill py-2 fw-semibold">Add to Cart</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Try Our Best Fashion Style Section -->
@@ -204,11 +94,7 @@
         </div>
 
         <div class="offcanvas-body">
-
-            <!-- Cart Items Container -->
             <div id="cartItemsContainer"></div>
-
-            <!-- Cart Summary -->
             <div class="border-top pt-3 mt-4">
                 <div class="d-flex justify-content-between mb-2 fw-semibold">
                     <span>Subtotal</span>
@@ -225,6 +111,142 @@
         </div>
     </div>
 
+  </div> <!-- ✅ end of container -->
+
+  <!-- ✅ AI Chatbot Floating Button -->
+  <a href="#" id="aiChatBtn" class="btn btn-primary rounded-circle shadow-lg">
+      <i class="fas fa-robot fa-lg"></i>
+  </a>
+
+  <!-- ✅ Chatbot Container -->
+  <div class="fashionbot" id="fashionBot">
+      <div class="bot-header">
+          <span><i class="fas fa-robot"></i> Fashionbot</span>
+          <button id="closeBot" class="btn-close"></button>
+      </div>
+      <div class="bot-body" id="botBody">
+          <div class="bot-message">Welcome to Fashionbot! Ready to discover your next stylish look? 😊</div>
+          <div class="bot-message">I'm here to assist you with everything you need today.</div>
+          <div class="bot-buttons">
+              <button class="bot-btn">Rent Now!</button>
+              <button class="bot-btn">About Us</button>
+              <button class="bot-btn">Contact Us</button>
+          </div>
+      </div>
+      <div class="bot-footer">
+          <input type="text" id="botInput" placeholder="Type your answer...">
+          <button id="sendBotBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+  </div>
+
 </main>
 
 @include('user.partials.__footer')
+
+<!-- ✅ Chatbot Styles -->
+<style>
+#aiChatBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1050;
+  background: orange;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fashionbot {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  max-height: 500px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 1051;
+  overflow: hidden;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.fashionbot.show {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.bot-header {
+  background: linear-gradient(135deg, #1e1e2f, #343a40);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bot-body {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.bot-message {
+  background: #f1f1f1;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.bot-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bot-btn {
+  background: linear-gradient(135deg, #343a40, #1e1e2f);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.bot-btn:hover {
+  background: linear-gradient(135deg, #1e1e2f, #000);
+}
+
+.bot-footer {
+  display: flex;
+  border-top: 1px solid #dee2e6;
+  padding: 10px;
+}
+
+#botInput {
+  flex-grow: 1;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+#sendBotBtn {
+  background: #343a40;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+</style>
+
+
